@@ -104,8 +104,9 @@ This project is part of the CS5330 Computer Vision course. It focuses on impleme
 - command ```o``` contrast -10
 - command ```u``` brightness +10
 - command ```a``` make the video cartoon mode
-- command ```w``` warp mode
-- command ```r``` on/off for the recording video
+- command ```w``` horizontal warp mode
+- command ```v``` vertical warp mode
+- command ```r``` on/off for the recording video (.avi)
 
 
 

@@ -37,6 +37,11 @@ int sepiaTone(cv::Mat &src, cv::Mat &dst) {
     }
     // clone the src to dst, to make sure the original src is not changed
     dst = src.clone();
+
+    // Calculate the center of the image
+    cv::Point center(src.cols / 2, src.rows / 2);
+    double maxDistance = cv::norm(cv::Point(0, 0) - center);
+
     for (int y = 0; y < src.rows; y++) {
         for (int x = 0; x < src.cols; x++) {
             cv::Vec3b pixel = src.at<cv::Vec3b>(y, x);
@@ -46,6 +51,18 @@ int sepiaTone(cv::Mat &src, cv::Mat &dst) {
             uchar newRed  = std::min(255.0, pixel[2] * 0.393 + pixel[1] * 0.769 + pixel[0] * 0.189);
             
             dst.at<cv::Vec3b>(y, x) = cv::Vec3b(newBlue, newGreen, newRed);
+            // Calculate the distance from the center
+            double distance = cv::norm(cv::Point(x, y) - center);
+
+            // Calculate the vignetting factor
+            double vignette = std::max(0.0, 1 - distance / maxDistance);
+
+            // Apply the vignetting factor to the new RGB values
+            newBlue = std::min(255.0, newBlue * vignette);
+            newGreen = std::min(255.0, newGreen * vignette);
+            newRed = std::min(255.0, newRed * vignette);
+
+            dst.at<cv::Vec3b>(y, x) = cv::Vec3b(static_cast<uchar>(newBlue), static_cast<uchar>(newGreen), static_cast<uchar>(newRed));
         }
     }
     return 0;

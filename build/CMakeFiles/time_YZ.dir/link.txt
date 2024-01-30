@@ -1,1 +1,0 @@
-/usr/bin/clang++ -g -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.2.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/time_YZ.dir/src/timeBlur.cpp.o CMakeFiles/time_YZ.dir/src/filter.cpp.o -o /Users/jeff/Desktop/Project1_YZ/bin/time_YZ 

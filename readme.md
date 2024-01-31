@@ -108,7 +108,10 @@ This project is part of the CS5330 Computer Vision course. It focuses on impleme
 - command ```v``` vertical warp mode
 - command ```r``` on/off for the recording video (.avi)
 
+### Data and results
 
+- images processed by filters: `data/`
+- links of video: [Google Link](https://drive.google.com/file/d/10MeBpye9ZssSkro5LRphwuVtTyzsyjTe/view?usp=drive_link) ,  [Youtube](https://www.youtube.com/watch?v=cKiark0QWcA&ab_channel=JeffZhao)
 
 ## License
 This project is licensed under the [MIT License](LICENSE).
